@@ -1,0 +1,68 @@
+<!doctype html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+<title>Music Mixer</title>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
+	<div id="header">
+		<h1><a href="/">Music Mixer</a></h1>
+	</div>
+
+	<div id="wrapper">
+		<div id="content">
+
+	<div class="post">
+		<h2>Crossfade</h2>
+			<p>
+				<p><input type="button" onclick="sample.toggle();" value="Play/Pause">
+				Song 1<input type="range" min="0" max="100" value="100" onchange="sample.crossfade(this);"> Song 2</p>
+
+		<h2>Filter</h2>
+			<p>
+				<p>Apply a simple low pass filter to a sound. Lets you tweak frequency and Q values.</p>
+			
+			<p><input type="checkbox" id="c1" checked="false" onchange="sample.toggleFilter(this.checked, 1);">
+			<label for="c1"><span></span>Enable filter</label></p>
+
+			<p><input type="checkbox" id="c2" checked="false" onchange="sample.toggleFilter(this.checked, 2);">
+			<label for="c2"><span></span>Enable filter</label></p>
+
+			<p><input type="range" min="0" max="1" step="0.01" value="1" onchange="sample.changeFrequency(this.value, 1);"> Frequency 1</p>
+			<p><input type="range" min="0" max="1" step="0.01" value="1" onchange="sample.changeFrequency(this.value, 2);"> Frequency 2</p>
+
+			Playback Rate 1: <input id="rate1" type="range" min="1" max="2" step=".1" value="1" onchange="sample.changeSpeed(this.value, 1);">
+     		Playback Rate 2: <input id="rate2" type="range" min="1" max="2" step=".1" value="1" onchange="sample.changeSpeed(this.value, 2);">
+     			
+
+     			<!-- Detune: <input id="detune" type="range" min="-100" max="100" step="5" value="0" onchange="oscillator.changeDetune(this.value);"></div>
+     			<div> <input type="radio" name="ir" value="0" class="effect" onclick="oscillator.changeType('sine')">Sine</input>
+     			<input type="radio" name="ir" value="1" class="effect" onclick="oscillator.changeType('square')">Square</input>
+     			<input type="radio" name="ir" value="2" class="effect" onclick="oscillator.changeType('sawtooth')">Sawtooth</input>
+     			<input type="radio" name="ir" value="3" class="effect" onclick="oscillator.changeType('triangle')">Triangle</input>
+     			</div>
+     			<p><button onclick="oscillator.toggle()">Play/pause</button></p> -->
+
+		<script src="shared.js"></script>
+		<script src="crossfade.js"></script>
+		<script>var sample = new CrossfadeSample();</script>
+			</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-17930798-28']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+	</body>
